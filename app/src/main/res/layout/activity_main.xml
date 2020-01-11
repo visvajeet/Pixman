@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:background="@color/black"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:background="@drawable/border"
+            android:textSize="28sp"
+            android:textColor="@color/white"
+            android:padding="10dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name" />
+
+        <FrameLayout
+            android:elevation="4dp"
+            android:background="@drawable/circle_border"
+            android:onClick="imagePicker"
+            android:foreground="@drawable/ripple_effect_round_light"
+            android:id="@+id/cvChooseImage"
+            android:layout_marginTop="70dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_gravity="center"
+                app:tint="@color/colorPrimary"
+                app:srcCompat="@drawable/image_icon"
+                android:layout_width="30dp"
+                android:layout_height="30dp" />
+
+        </FrameLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_marginTop="5dp"
+            android:textSize="15sp"
+            android:textColor="@color/white"
+            android:text="@string/choose_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="viewModel"
+            type="com.greedygame.pixman.EditImageViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:background="@color/black"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivBack"
+                android:background="@drawable/ripple_effect_light"
+                android:layout_width="60dp"
+                android:padding="12dp"
+                app:srcCompat="@drawable/back_arrow"
+                android:layout_height="match_parent"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:textSize="19sp"
+                android:layout_weight="1"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:textStyle="bold"
+                android:gravity="center|start"
+                android:textColor="@color/white"
+                android:text="@string/pixman_editor"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:onClick="@{()-> viewModel.undoAction()}"
+                android:visibility="@{viewModel.bitmapArray.size() > 1 ? View.VISIBLE : View.GONE, default = gone}"
+                android:id="@+id/ivUndo"
+                android:background="@drawable/ripple_effect_light"
+                android:layout_width="60dp"
+                android:padding="17dp"
+                app:srcCompat="@drawable/undo_icon"
+                android:layout_height="match_parent"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:enabled="@{viewModel.bitmapArray.size() > 1 ? true : false, default = false}"
+                android:id="@+id/tvSaveImage"
+                android:text="@string/save"
+                android:onClick="@{(v)-> viewModel.saveImage(v)}"
+                android:textColor="@{viewModel.bitmapArray.size() > 1 ? @color/white : @color/fade, default = @color/fade}"
+                android:gravity="center"
+                android:paddingEnd="20dp"
+                android:paddingStart="20dp"
+                android:textStyle="bold"
+                android:background="@drawable/ripple_effect_light"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:id="@+id/ivPreview"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:onClick="@{()-> viewModel.rotateImage()}"
+                android:layout_weight="1"
+                android:id="@+id/ivRotate"
+                android:background="@drawable/ripple_effect_light"
+                android:layout_width="0dp"
+                android:padding="18dp"
+                app:srcCompat="@drawable/rotate_icon"
+                android:layout_height="match_parent"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_weight="1"
+                android:onClick="@{()-> viewModel.flipX()}"
+                android:id="@+id/ivFlipHorizontal"
+                android:background="@drawable/ripple_effect_light"
+                android:layout_width="0dp"
+                android:padding="17dp"
+                app:srcCompat="@drawable/flip_image"
+                android:layout_height="match_parent"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_weight="1"
+                android:onClick="@{()-> viewModel.flipY()}"
+                android:id="@+id/ivFlipVertical"
+                android:rotation="90"
+                android:background="@drawable/ripple_effect_light"
+                android:layout_width="0dp"
+                android:padding="17dp"
+                app:srcCompat="@drawable/flip_image"
+                android:layout_height="match_parent"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:onClick="@{()-> viewModel.addText()}"
+                android:layout_weight="1"
+                android:id="@+id/ivText"
+                android:background="@drawable/ripple_effect_light"
+                android:layout_width="0dp"
+                android:padding="19dp"
+                app:srcCompat="@drawable/text_image"
+                android:layout_height="match_parent"/>
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:onClick="@{()-> viewModel.changeOpacity()}"
+                android:layout_weight="1"
+                android:id="@+id/ivOpacity"
+                android:background="@drawable/ripple_effect_light"
+                android:layout_width="0dp"
+                android:padding="18dp"
+                app:srcCompat="@drawable/opacity_icon"
+                android:layout_height="match_parent"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

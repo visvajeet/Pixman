@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Pixman</string>
+    <string name="choose_image">Choose Image</string>
+    <string name="tap_to_select">Tap to select</string>
+    <string name="folder">Folders</string>
+    <string name="pixman_editor">Pixman Editor</string>
+    <string name="save_image">Save Image</string>
+    <string name="save">Save</string>
+    <string name="image_saved_to">Image saved to Pixman folder.</string>
+    <string name="error_while_saving_image">Error while saving edited image.</string>
+</resources>
